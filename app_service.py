@@ -50,12 +50,12 @@ def get_top_with_transactions(n):
         print(f"HTTP Error: {response.status_code}")
         return 
     
-def get_token_info(address):
-
+def get_token_info():
     symbol = contract.functions.symbol().call()
     name = contract.functions.name().call()
     total_supply = contract.functions.totalSupply().call()
     decimals = contract.functions.decimals().call()
+    
     return {
         'symbol': symbol,
         'name': name,
