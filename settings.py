@@ -1,12 +1,19 @@
 from web3 import Web3
 from flask import Flask
+from dotenv import load_dotenv
+import os
+
 
 app = Flask(__name__)
+
+load_dotenv()
 
 POLYGON_RPC = "https://polygon-rpc.com"
 w3 = Web3(Web3.HTTPProvider(POLYGON_RPC))
 
-TOKEN = Web3.to_checksum_address("0x1a9b54a3075119f1546c52ca0940551a6ce5d2d0")
+
+
+TOKEN = Web3.to_checksum_address(os.getenv('TOKEN_ADRESS'))
 
 ERC20 = [
     {
